@@ -933,8 +933,9 @@ def make_summary_table(indir,aggregation_rules,aggregation_rules_twiki, hashing_
 
 #-----------UPDATES------
 def hash_name(file_name, flag):
-    #print "     HashFILE name: "+file_name
     if flag: #if hashing flag is ON then return
+        if (3,0,0) <= sys.version_info:
+            return hashlib.md5(file_name.encode('utf-8')).hexdigest()[:10]
         return hashlib.md5(file_name).hexdigest()[:10] #md5 hashed file name with length 10
     else:
         return file_name #return standart name

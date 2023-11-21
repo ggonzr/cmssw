@@ -23,6 +23,8 @@ from ROOT import TCanvas,gStyle,TH1F,TGaxis,gPad,kRed
 sys.argv=theargv
 
 import os
+import hashlib
+
 if "RELMON_SA" in os.environ:
   from .dirstructure import Comparison,Directory
   from .definitions import *
@@ -32,7 +34,6 @@ else:
   from Utilities.RelMon.definitions import *
   from Utilities.RelMon.utils import unpickler
   
-  import hashlib
 #-------------------------------------------------------------------------------
 
 def encode_obj_url(url):
